@@ -105,7 +105,7 @@
                             <th class="px-6 py-6">Keperluan</th>
                             <th class="px-6 py-6">No Telepon</th>
                             <th class="px-6 py-6">Status</th>
-                            {{-- <th class="px-6 py-6">Action</th> --}}
+                            <th class="px-6 py-6">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -123,7 +123,10 @@
                                 <td class="px-6 py-6">{{ $item->masterbatu->jenisbatu }}</td>
                                 <td class="px-6 py-6">{{ $item->berapaton }} TON</td>
                                 <td class="px-6 py-6">{{ $item->no_telp }}</td>
-                                <td class="px-6 py-6">{{ $item->status }}</td>
+                                <td class="px-6 py-6"><span
+                                    class="{{ $item->status == 'Approve' ? 'badge badge-success' : 'badge badge-danger' }}">
+                                    {{ $item->status }}
+                                </span></td>
 
                                 {{-- <td class="px-6 py-2">
                                     @if ($item->status == 0)
@@ -152,17 +155,11 @@
                                     @endif
                                 </td> --}}
 
-                                {{-- <td>
-                            <a href="{{ route('pendafoutlite.edit', $item->id)}}" class="btn btn-primary">
-                                Edit
+                        <td>
+                            <a href="{{ route('laporan.suratjalanpdf', $item->id)}}" class="btn btn-primary">
+                                Surat Jalan
                             </a>
-                            <form action="{{ route('pendafoutlite.destroy', $item->id) }}" method="POST"
-                                style="display:inline;">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-danger">Hapus</button>
-                            </form>
-                        </td> --}}
+                        </td>
                             </tr>
                         @endforeach
                     </tbody>

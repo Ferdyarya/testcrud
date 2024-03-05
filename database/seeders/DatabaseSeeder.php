@@ -125,7 +125,7 @@ class DatabaseSeeder extends Seeder
             'namacust' => 'PT PSG',
             'alamat' => 'Muara Teweh',
             'no_telp' => '08122312',
-            'email' => 'pt[sg@gmail.com'
+            'email' => 'ptpsg@gmail.com'
         ]);
 
 

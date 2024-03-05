@@ -82,8 +82,11 @@ Route::prefix('dashboard')->middleware(['auth:sanctum'])->group(function() {
     Route::get('pernamapdf/filter={filter}', [PembelianbatuController::class, 'pernama_pdf'])->name('pernamapdf');
     Route::get('laporanbatupdf/filter={filter}', [PembelianbatuController::class, 'laporanbatupdf'])->name('laporanbatupdf');
     Route::get('laporanbatumasukpdf/filter={filter}', [BatumasukController::class, 'laporanbatumasukpdf'])->name('laporanbatumasukpdf');
-Route::get('laporanharianjualpdf/filter={filter}', [LaporanharianController::class, 'laporanharianjualpdf'])->name('laporanharianjualpdf');
+    Route::get('laporanharianjualpdf/filter={filter}', [LaporanharianController::class, 'laporanharianjualpdf'])->name('laporanharianjualpdf');
 
+    // Route::get('/suratjalanpdf/{id}', 'PembelianbatuController@suratjalanpdfid')->name('suratjalanpdf');
+    // Route::get('/suratjalanpdf/{id}',  [PembelianbatuController::class, 'suratjalanpdf'])->name('laporan.suratjalanpdf');
+    Route::get('/suratjalanpdf/{id}', [PembelianbatuController::class, 'suratjalanpdfid'])->name('laporan.suratjalanpdf');
 
 });
 

@@ -27,6 +27,6 @@ class Pembelianbatu extends Model
 
     public function mastercustomer()
     {
-        return $this->hasOne(mastercustomer::class, 'id', 'id_customer');
+        return $this->hasOne(Mastercustomer::class, 'id', 'id_customer');
     }
 }

@@ -241,6 +241,23 @@ class PembelianbatuController extends Controller
         return $pdf->download('laporan_laporanbatu.pdf');
     }
 
+    public function suratjalanpdfid($id)
+{
+    $pembelianbatu = Pembelianbatu::where('id', $id)->get();
+
+    // Periksa apakah data penjualan ditemukan untuk ID yang diberikan
+    if ($pembelianbatu->isEmpty()) {
+        return redirect()->back()->with('error', 'Tidak ada data penjualan ditemukan untuk ID yang diberikan.');
+    }
+
+    $data['pembelianbatu'] = $pembelianbatu;
+    $data['filter'] = $id;
+
+    // Generate the PDF
+    $pdf = PDF::loadview('laporan/suratjalanpdf', compact('pembelianbatu'));
+    return $pdf->download('laporan-suratjalanpdf.pdf');
+}
+
 
 
 
