@@ -226,6 +226,7 @@
 
 
                         {{-- Master Data --}}
+                        @if (Auth::user()->hakakses('manager_oprasional'))
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
@@ -261,6 +262,7 @@
                                 </li>
                             </ul>
                         </li>
+                        @endif
 
 
                         {{-- Data Tables --}}
@@ -273,25 +275,30 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-
+                                @if (Auth::user()->hakakses('manager_oprasional')|| Auth::user()->hakakses('admin_timbang')|| Auth::user()->hakakses('admin_finance'))
                                 <li class="nav-item">
                                     <a href="{{ route('pembelianbatu.index')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Penjualan Batu</p>
                                     </a>
                                 </li>
+                                @endif
+                                @if (Auth::user()->hakakses('manager_oprasional')|| Auth::user()->hakakses('admin_finance')|| Auth::user()->hakakses('admin_timbang'))
                                 <li class="nav-item">
                                     <a href="{{ route('batumasuk.index')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Batu Masuk</p>
                                     </a>
                                 </li>
+                                @endif
+                                @if (Auth::user()->hakakses('manager_oprasional')|| Auth::user()->hakakses('admin_timbang')|| Auth::user()->hakakses('admin_finance'))
                                 <li class="nav-item">
                                     <a href="{{ route('laporanharian.index')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Laporan harian</p>
                                     </a>
                                 </li>
+                                @endif
                             </ul>
                         </li>
 
@@ -305,30 +312,38 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
+                                @if (Auth::user()->hakakses('manager_oprasional')|| Auth::user()->hakakses('admin_timbang')|| Auth::user()->hakakses('admin_finance'))
                                 <li class="nav-item">
                                     <a href="{{ route('pernama')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Pegawai Penjual Batu</p>
                                     </a>
                                 </li>
+                                @endif
+                                @if (Auth::user()->hakakses('manager_oprasional')|| Auth::user()->hakakses('admin_finance'))
                                 <li class="nav-item">
                                     <a href="{{ route('laporanbatu')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Laporan Penjualan Batu</p>
                                     </a>
                                 </li>
+                                @endif
+                                @if (Auth::user()->hakakses('manager_oprasional')|| Auth::user()->hakakses('admin_finance')|| Auth::user()->hakakses('admin_timbang'))
                                 <li class="nav-item">
                                     <a href="{{ route('laporanbatumasuk')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Barang Masuk</p>
+                                        <p>Batu Masuk</p>
                                     </a>
                                 </li>
+                                @endif
+                                @if (Auth::user()->hakakses('manager_oprasional')|| Auth::user()->hakakses('admin_finance'))
                                 <li class="nav-item">
                                     <a href="{{ route('laporanharianjual')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Laporan Harian Jual Batu</p>
                                     </a>
                                 </li>
+                                @endif
                             </ul>
                         </li>
 
