@@ -21,8 +21,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'roles',
-        'password',
     ];
 
     /**
@@ -42,13 +40,5 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
     ];
-
-    public function hakakses($roles) {
-        if ($this->roles === $roles){
-            return true;
-        }
-        return false;
-    }
 }
